@@ -8,6 +8,6 @@ class TweetsController < ApplicationController
   end
 
   def create
-    Tweet.create(title: params[:tweet][:title], content: params[:tweet][:content])
+    Tweet.create(content: params[:tweet][:content])
   end
 end
