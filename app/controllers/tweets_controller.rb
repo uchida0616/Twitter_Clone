@@ -13,6 +13,10 @@ class TweetsController < ApplicationController
     redirect_to new_tweet_path
   end
 
+  def show
+    @tweet = Tweet.find(params[:id])
+  end
+
   private
   def blog_params
     params.require(:tweet).permit(:content)
