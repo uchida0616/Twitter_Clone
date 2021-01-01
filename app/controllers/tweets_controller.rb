@@ -9,16 +9,24 @@ class TweetsController < ApplicationController
   end
 
   def create
-    Tweet.create(tweet_params)
-    redirect_to new_tweet_path
+    @tweet = Tweet.new(tweet_params)
+    if @tweet.save
+      redirect_to tweets_path, notice: "ツイートしました！"
+    else
+      render :new
+    end
   end
 
   def show
     @tweet = Tweet.find(params[:id])
   end
 
+  def edit
+  end
+
   private
-  def blog_params
+
+  def tweet_params
     params.require(:tweet).permit(:content)
   end
 end
