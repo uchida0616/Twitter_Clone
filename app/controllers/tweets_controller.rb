@@ -29,10 +29,14 @@ class TweetsController < ApplicationController
       render :edit
     end
   end
-  
+
   def destroy
     @tweet.destroy
     redirect_to tweets_path, notice:"ツイートを削除しました！"
+  end
+
+  def confirm
+    @tweet = Tweet.new(tweet_params)
   end
 
   private
