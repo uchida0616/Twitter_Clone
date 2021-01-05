@@ -1,17 +1,22 @@
 <h1>ツイート一覧</h1>
-<p><%= notice %></p>
-<table>
-  <tr>
-    <th>投稿内容</th>
-  </tr>
-<% @tweets.each do |tweet| %>
-  <tr>
-    <td><%= tweet.content %></td>
-    <td><%= link_to '詳細を確認する', tweet_path(tweet.id) %></td>
-    <td><%= link_to "ツイートを編集する", edit_tweet_path(tweet.id) %></td>
-    <td><%= link_to 'ツイートを削除する', tweet_path(tweet.id), method: :delete ,data: { confirm: '本当に削除していいですか？' }%></td>
-  </tr>
-<% end %>
-</table>
+  <div class="alert alert-warning alert-dismissible fade show" role="alert">
+  <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+  </div>
+  <table>
+    <tr>
+      <th>投稿内容</th>
+    </tr>
+    <% @tweets.each do |tweet| %>
+    <tr>
+      <td><%= tweet.content %></td>
+      <td><%= link_to '詳細を確認する', tweet_path(tweet.id) %></td>
+      <td><%= link_to "ツイートを編集する", edit_tweet_path(tweet.id) %></td>
+      <td><%= link_to 'ツイートを削除する', tweet_path(tweet.id), method: :delete ,data: { confirm: '本当に削除していいですか？' }%></td>
+    </tr>
+    <% end %>
+  </table>
 <br>
 <%= link_to '新しくツイートする', new_tweet_path %>
