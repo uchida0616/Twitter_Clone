@@ -9,10 +9,17 @@
       </ul>
     </div>
   <% end %>
-  <div class="tweet_content">
-    <%= form.label :content %>
-    <%= form.text_field :content %>
-  </div>
-  <%= form.submit %>
+    <div class="tweet_content">
+      <%= form.label :content %>
+      <br>
+      <div class="textarea">
+        <%= form.text_area :content %>
+      </div>
+    </div>
+    <div class="form">
+      <%= form.submit %>
+    </div>
 <% end %>
-<%= link_to "ツイート一覧画面にもどる", tweets_path %>
+  <div class="back_to_top">
+    <%= link_to "ツイート一覧画面にもどる", tweets_path, class: 'btn btn-primary'%>
+  </div>
