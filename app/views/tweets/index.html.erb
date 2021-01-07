@@ -1,28 +1,25 @@
-<div class="container">
-  <div class="center-block bg-primary text-center" style="width:400px">
-    <h1>ツイート一覧<h1>
-  </div>
-  <div class="alert alert-info alert-dismissible" role="alert">
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-    <span aria-hidden="true">&times;</span></button>
-    <strong><%= notice %></strong>
-  </div>
-    </div>
-    <table>
-      <tr>
-        <th>投稿内容</th>
-      </tr>
-      <% @tweets.each do |tweet| %>
-      <tr>
-        <td><%= tweet.content %></td>
-        <td><%= link_to '詳細を確認する', tweet_path(tweet.id) %></td>
-        <td><%= link_to "ツイートを編集する", edit_tweet_path(tweet.id) %></td>
-        <td><%= link_to 'ツイートを削除する', tweet_path(tweet.id), method: :delete ,data: { confirm: '本当に削除していいですか？' }%></td>
-      </tr>
-      <% end %>
-    </table>
-  <br>
-  <button class="btn btn-default">
-    <%= link_to '新しくツイートする', new_tweet_path %>
-  </button>
+<div class="center-block bg-primary text-center" style="width:40%">
+  <header>ツイート一覧</header>
 </div>
+  <br>
+  <p><%= notice %></p>
+    <div class="mainTop">
+      <span class="label label-primary">投稿内容</span>
+  </div>
+    <br>
+      <% @tweets.each do |tweet| %>
+        <div class="panel panel-default panel-info">
+          <div class="panel-body">
+            <%= tweet.content %>
+          </div>
+            <div class="panel-footer">
+              <%= link_to '詳細を確認する', tweet_path(tweet.id) %>
+              <%= link_to "ツイートを編集する", edit_tweet_path(tweet.id) %>
+              <%= link_to 'ツイートを削除する', tweet_path(tweet.id), method: :delete ,data: { confirm: '本当に削除していいですか？' }%>
+            </div>
+        </div>
+      <% end %>
+  <br>
+  <div class="mainBottom">
+    <%= link_to '新しくツイートする', new_tweet_path, class: 'btn btn-primary' %>
+  </div>
