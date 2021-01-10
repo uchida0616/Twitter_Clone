@@ -1,7 +1,15 @@
-<h3>以下の内容で、送信する。</h3>
+<div class="confirm_text">
+  <h3 class="label label-primary">以下の内容で、送信する。</h3>
+</div>
 <%= form_with(model: @tweet, url: tweets_path, local: true) do |form| %>
   <%= form.hidden_field :content %>
-  <p>投稿内容:<%= @tweet.content %></p>
+  <div class="main_header">
+    <p class="label label-primary">投稿内容</p>
+  </div>
+  <br>
+  <div class="text_box">
+    <p><%= @tweet.content %></p>
+  </div>
   <%= form.submit "投稿する" %>
   <%= form.submit "戻る", name: 'back' %>
 <% end %>

@@ -1,4 +1,12 @@
-<h1>ツイート詳細画面</h1>
-<p>投稿内容: <%= @tweet.content %></p>
+<div class="top_header">
+  <h1 class="label label-primary">ツイート詳細画面</h1>
+</div>
 <br>
-<%= link_to "ツイート一覧画面にもどる", tweets_path %>
+<div class="main_header">
+  <p class="label label-primary">投稿内容</p>
+</div>
+<div class="text_box">
+  <p><%= @tweet.content %></p>
+</div>
+<br>
+<%= link_to "ツイート一覧画面にもどる", tweets_path, class: 'btn btn-primary' %>
